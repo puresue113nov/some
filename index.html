@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전프로골프아카데미 개업식</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#eeeeea;
+  color:#354438;
+  font-family:"Noto Sans KR",Arial,sans-serif;
+}
+.invitation{
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  background:#f8f7f1;
+  overflow:hidden;
+}
+.page{
+  position:relative;
+  min-height:100vh;
+  padding:42px 24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+}
+.label{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:11px;
+  letter-spacing:4px;
+  color:#738370;
+  margin-bottom:12px;
+}
+h2{
+  text-align:center;
+  font-family:Georgia,"Noto Serif KR",serif;
+  font-weight:400;
+  font-size:29px;
+  color:#3e5d47;
+  margin-bottom:30px;
+}
+.line{
+  width:42px;
+  height:1px;
+  background:#849380;
+  margin:15px auto 20px;
+}
+.leaves{
+  position:absolute;
+  top:-4px;
+  left:-3px;
+  width:95px;
+  opacity:.65;
+}
+.leaves span{
+  position:absolute;
+  width:8px;
+  height:29px;
+  background:#9aaa91;
+  border-radius:100% 0 100% 0;
+  transform-origin:bottom center;
+}
+.leaves span:nth-child(1){left:27px;top:2px;transform:rotate(-20deg)}
+.leaves span:nth-child(2){left:17px;top:26px;transform:rotate(-45deg)}
+.leaves span:nth-child(3){left:40px;top:27px;transform:rotate(5deg)}
+.leaves span:nth-child(4){left:12px;top:51px;transform:rotate(-60deg)}
+.leaves span:nth-child(5){left:39px;top:55px;transform:rotate(-5deg)}
+.leaves span:nth-child(6){left:3px;top:77px;transform:rotate(-72deg)}
+.leaves span:nth-child(7){left:32px;top:82px;transform:rotate(-25deg)}
+
+/* ① 첫 화면 */
+.cover{
+  min-height:100vh;
+  padding:0;
+  justify-content:flex-end;
+  background-image:url("cover.png");
+  background-size:cover;
+  background-position:center;
+}
+.cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(250,249,241,.08) 0%,
+    rgba(250,249,241,.05) 48%,
+    rgba(40,60,45,.08) 100%
+  );
+}
+.cover-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:0 28px 42px;
+  text-align:center;
+  color:#31533d;
+}
+.cover-content .small{
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+.cover-content h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:39px;
+  line-height:.98;
+  font-weight:400;
+  letter-spacing:1px;
+}
+.cover-content .academy{
+  font-size:21px;
+  font-weight:600;
+  letter-spacing:2px;
+  margin-top:12px;
+}
+.cover-content .date{
+  font-size:14px;
+  letter-spacing:2px;
+  margin-top:15px;
+}
+.cover-content .english{
+  margin-top:16px;
+  font-family:cursive;
+  font-size:17px;
+  color:#fff;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+
+/* ② 개업식 */
+.opening{background:#f8f7f1}
+.opening-card{
+  background:rgba(255,255,251,.78);
+  border:1px solid #dfe2d9;
+  border-radius:8px;
+  padding:22px 20px;
+}
+.info{
+  display:flex;
+  padding:13px 0;
+  border-bottom:1px solid #e7e9e2;
+}
+.info:last-child{border-bottom:0}
+.icon{
+  width:35px;
+  color:#456249;
+  font-size:15px;
+}
+.info-label{
+  font-size:10px;
+  color:#849083;
+  margin-bottom:2px;
+}
+.info-text{
+  font-size:13px;
+  color:#465448;
+}
+
+/* ③ 지도 */
+.location{background:#f8f7f1}
+.map{
+  position:relative;
+  height:270px;
+  overflow:hidden;
+  border-radius:8px;
+  border:1px solid #dfe2d8;
+  background:
+    linear-gradient(135deg,#e0e7d9 25%,#f1f2eb 25%,#f1f2eb 50%,#e0e7d9 50%,#e0e7d9 75%,#f1f2eb 75%);
+  background-size:50px 50px;
+}
+.road{
+  position:absolute;
+  width:125%;
+  height:32px;
+  left:-12%;
+  top:45%;
+  background:#fff;
+  transform:rotate(-18deg);
+  box-shadow:0 0 4px rgba(0,0,0,.08);
+}
+.road2{
+  position:absolute;
+  width:120%;
+  height:24px;
+  left:-10%;
+  top:64%;
+  background:#fff;
+  transform:rotate(27deg);
+}
+.map-green{
+  position:absolute;
+  width:135px;height:90px;
+  border-radius:50%;
+  background:#cbd8c2;
+  left:10px;top:18px;
+}
+.map-green2{
+  position:absolute;
+  width:110px;height:80px;
+  border-radius:50%;
+  background:#cbd8c2;
+  right:8px;bottom:15px;
+}
+.pin{
+  position:absolute;
+  width:27px;height:27px;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%) rotate(-45deg);
+  background:#315d3e;
+  border-radius:50% 50% 50% 0;
+  box-shadow:0 3px 8px rgba(0,0,0,.2);
+}
+.pin:after{
+  content:"";
+  position:absolute;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:white;
+  left:9px;top:9px;
+}
+.address{
+  font-size:12px;
+  line-height:1.7;
+  color:#59655a;
+  margin:16px 0;
+}
+.map-button{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:#456249;
+  border:1px solid #96a293;
+  border-radius:20px;
+  padding:9px;
+  font-size:11px;
+  background:#fbfbf7;
+}
+
+/* ④ 계좌 - 생성한 이미지 자체를 배경으로 사용 */
+.account{
+  min-height:100vh;
+  padding:0;
+  justify-content:flex-end;
+  background-image:url("account.png");
+  background-size:cover;
+  background-position:center;
+}
+.account-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(248,247,241,.08);
+}
+.account-content{
+  position:relative;
+  z-index:2;
+  padding:0 25px 42px;
+  text-align:center;
+}
+.account-content .note{
+  font-size:12px;
+  color:#536254;
+  line-height:1.8;
+  margin-bottom:15px;
+}
+.account-real{
+  background:rgba(255,255,250,.84);
+  border:1px solid rgba(130,140,124,.35);
+  border-radius:10px;
+  padding:17px 16px;
+  text-align:left;
+}
+.account-real .account-label{
+  font-size:10px;
+  color:#7b867a;
+}
+.account-real .number{
+  font-size:17px;
+  color:#3d5944;
+  margin:4px 0 8px;
+}
+.account-real .owner{
+  font-size:11px;
+  color:#6d786d;
+}
+.copy{
+  display:block;
+  width:100%;
+  margin-top:13px;
+  padding:9px;
+  border:1px solid #5b735f;
+  background:transparent;
+  color:#49634e;
+  border-radius:20px;
+  font-size:11px;
+  cursor:pointer;
+}
+
+/* ⑤ RSVP */
+.rsvp{
+  min-height:100vh;
+  justify-content:flex-start;
+  padding-top:55px;
+  background:
+    linear-gradient(rgba(48,73,54,.42),rgba(248,247,241,.96) 36%),
+    url("cover.png") center top / 100% 310px no-repeat,
+    #f8f7f1;
+}
+.rsvp-title{
+  text-align:center;
+  color:white;
+  margin-bottom:22px;
+}
+.rsvp-title .label{color:white}
+.rsvp-title h2{color:white;margin-bottom:9px}
+.rsvp-title p{
+  font-size:11px;
+  line-height:1.7;
+}
+.form-card{
+  background:rgba(255,255,251,.95);
+  border:1px solid #e0e2da;
+  border-radius:9px;
+  padding:22px 18px;
+}
+.field{margin-bottom:17px}
+.field label{
+  display:block;
+  font-size:11px;
+  color:#647064;
+  margin-bottom:6px;
+}
+.field input,.field select{
+  width:100%;
+  height:39px;
+  border:1px solid #d9ddd5;
+  border-radius:5px;
+  padding:0 10px;
+  background:#fbfbf8;
+  font-family:inherit;
+}
+.attendance{
+  display:flex;
+  gap:8px;
+}
+.attendance label{
+  flex:1;
+  margin:0;
+}
+.attendance input{display:none}
+.attendance span{
+  display:block;
+  text-align:center;
+  padding:9px 3px;
+  border:1px solid #d9ddd5;
+  border-radius:5px;
+  font-size:11px;
+  cursor:pointer;
+}
+.attendance input:checked + span{
+  background:#46634d;
+  color:white;
+  border-color:#46634d;
+}
+.fillout{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:#355b40;
+  color:white;
+  border-radius:20px;
+  padding:11px;
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* ⑥ 감사 - 생성한 이미지 자체 */
+.thanks{
+  min-height:100vh;
+  padding:0;
+  background-image:url("thanks.png");
+  background-size:cover;
+  background-position:center;
+}
+.thanks a{
+  position:absolute;
+  left:24px;
+  bottom:25px;
+  z-index:5;
+  color:#fff;
+  background:rgba(54,77,59,.72);
+  text-decoration:none;
+  padding:8px 18px;
+  border-radius:20px;
+  font-size:10px;
+}
+
+/* PC */
+@media(min-width:600px){
+  body{padding:25px 0}
+  .invitation{
+    border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,.12);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="invitation">
+
+  <!-- ① 첫 화면 -->
+  <section class="page cover" id="top">
+    <div class="cover-content">
+      <div class="small">INVITATION</div>
+      <h1>GRAND<br>OPENING</h1>
+      <div class="line"></div>
+      <div class="academy">전프로골프아카데미</div>
+      <div class="date">2026년 10월 18일</div>
+      <div class="english">Better Swing · Better Life</div>
+    </div>
+  </section>
+
+  <!-- ② 개업식 안내 -->
+  <section class="page opening">
+    <div class="leaves">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="label">OPENING CEREMONY</div>
+    <h2>개업식 안내</h2>
+
+    <div class="opening-card">
+      <div class="info">
+        <div class="icon">▣</div>
+        <div>
+          <div class="info-label">일시</div>
+          <div class="info-text">2026년 10월 18일 (일)</div>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="icon">●</div>
+        <div>
+          <div class="info-label">장소</div>
+          <div class="info-text">전프로골프아카데미</div>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="icon">☎</div>
+        <div>
+          <div class="info-label">문의</div>
+          <div class="info-text">042-123-4567</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 오시는 길 -->
+  <section class="page location">
+    <div class="leaves">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="label">LOCATION</div>
+    <h2>오시는 길</h2>
+
+    <div class="map">
+      <div class="map-green"></div>
+      <div class="map-green2"></div>
+      <div class="road"></div>
+      <div class="road2"></div>
+      <div class="pin"></div>
+    </div>
+
+    <div class="address">
+      <strong>● 주소</strong><br>
+      정확한 주소를 입력해주세요
+    </div>
+
+    <a class="map-button"
+       href="https://naver.me/FoX7RHpC"
+       target="_blank">
+      ↗ 네이버 지도에서 보기
+    </a>
+  </section>
+
+  <!-- ④ 계좌 안내 -->
+  <section class="page account">
+    <div class="account-overlay"></div>
+
+    <div class="account-content">
+      <div class="label">ACCOUNT</div>
+
+      <div class="note">
+        축하의 마음을 전하실 분들을 위해<br>
+        계좌를 안내드립니다.
+      </div>
+
+      <div class="account-real">
+        <div class="account-label">계좌번호</div>
+        <div class="number" id="accountNumber">
+          농협 110-123-456789
+        </div>
+        <div class="owner">
+          예금주 : 전프로골프아카데미
+        </div>
+
+        <button class="copy" onclick="copyAccount()">
+          계좌번호 복사하기
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ RSVP -->
+  <section class="page rsvp">
+    <div class="rsvp-title">
+      <div class="label">RSVP</div>
+      <h2>참석 여부를 알려주세요</h2>
+      <p>
+        원활한 행사 준비를 위해<br>
+        참석 여부를 미리 알려주시면 감사하겠습니다.
+      </p>
+    </div>
+
+    <div class="form-card">
+
+      <!-- Fillout을 사용할 경우 아래 버튼의 주소만 변경 -->
+      <a class="fillout"
+         href="FILL_OUT_링크를_여기에_입력"
+         target="_blank">
+        참석 여부 전달하기
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ⑥ 감사 -->
+  <section class="page thanks">
+    <a href="#top">↑ 처음으로</a>
+  </section>
+
+  <div class="footer">
+    JEON PRO GOLF ACADEMY · GRAND OPENING
+  </div>
+
+</div>
+
+<script>
+function copyAccount(){
+  const account =
+    document.getElementById("accountNumber").innerText;
+
+  navigator.clipboard.writeText(account).then(function(){
+    alert("계좌번호가 복사되었습니다.");
+  });
+}
+</script>
+
+</body>
+</html>
