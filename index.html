@@ -1,1 +1,175 @@
 
+from pathlib import Path
+import base64, html
+
+img_path = Path("/mnt/data/a_clean_elegant_multi_panel_invitation_design_moc.png")
+img_b64 = base64.b64encode(img_path.read_bytes()).decode("ascii") if img_path.exists() else ""
+
+naver_url = "https://naver.me/FoX7RHpC"
+
+html_doc = f"""<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f5ed">
+<meta name="description" content="전프로골프아카데미 개업식 초대장">
+<title>전프로골프아카데미 | 개업식 초대장</title>
+<style>
+:root {{
+  --cream:#f7f5ed; --paper:#fffdf7; --green:#214d38; --sage:#70866f;
+  --line:#d9ded2; --muted:#687267; --shadow:0 12px 36px rgba(34,58,43,.10);
+}}
+*{{box-sizing:border-box}}
+html{{scroll-behavior:smooth}}
+body{{margin:0;background:#e9ebe4;color:#24352b;font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.7}}
+a{{color:inherit;text-decoration:none}}
+.wrap{{max-width:520px;margin:0 auto;background:var(--cream);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.10)}}
+section{{padding:54px 24px}}
+.hero{{position:relative;min-height:780px;display:flex;align-items:flex-end;padding:0;overflow:hidden;background:#dce3d5}}
+.hero img{{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}}
+.hero::after{{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,245,237,.08) 0%,rgba(247,245,237,.18) 38%,rgba(24,49,35,.62) 100%)}}
+.hero-content{{position:relative;z-index:2;color:#fff;padding:56px 28px 54px;width:100%;text-align:center}}
+.eyebrow{{font-size:12px;letter-spacing:.42em;margin-bottom:20px;opacity:.9}}
+h1{{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:.06em;font-size:52px;line-height:1.02;margin:0 0 18px}}
+.kor-title{{font-size:26px;font-weight:600;letter-spacing:-.04em}}
+.date{{margin-top:28px;font-size:18px;letter-spacing:.16em}}
+.slogan{{margin-top:22px;font-family:cursive;font-size:20px;font-style:italic}}
+.scroll{{display:inline-block;margin-top:28px;font-size:12px;opacity:.9}}
+.title{{font-family:Georgia,"Times New Roman",serif;font-size:32px;font-weight:400;color:var(--green);letter-spacing:.08em;margin:6px 0 24px}}
+.center{{text-align:center}}
+.lead{{font-size:18px;color:var(--green);font-weight:500}}
+.sub{{color:var(--muted);font-size:14px}}
+.card{{background:rgba(255,255,255,.72);border:1px solid #e4e6dc;border-radius:18px;padding:8px 20px;box-shadow:var(--shadow);margin-top:28px}}
+.info-row{{display:flex;gap:16px;padding:17px 0;border-bottom:1px solid var(--line);align-items:flex-start}}
+.info-row:last-child{{border-bottom:0}}
+.icon{{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:0 0 34px;font-size:15px}}
+.label{{font-size:12px;color:var(--sage);font-weight:700;letter-spacing:.08em}}
+.value{{font-size:15px;color:#2d3b32}}
+.btn{{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;padding:15px 18px;border-radius:999px;border:1px solid var(--green);font-weight:700;margin-top:18px;cursor:pointer}}
+.btn.primary{{background:var(--green);color:white}}
+.btn.secondary{{background:transparent;color:var(--green)}}
+.mapbox{{margin-top:26px;border-radius:18px;overflow:hidden;border:1px solid #dfe3da;background:#e6e9e0;min-height:250px;position:relative}}
+.mapbox .fake-map{{height:250px;background:
+linear-gradient(25deg,transparent 45%,rgba(255,255,255,.75) 46%,rgba(255,255,255,.75) 49%,transparent 50%),
+linear-gradient(110deg,transparent 42%,rgba(255,255,255,.65) 43%,rgba(255,255,255,.65) 46%,transparent 47%),
+#dfe7d9;display:grid;place-items:center;color:var(--green)}}
+.pin{{background:var(--green);color:#fff;padding:8px 14px;border-radius:999px;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.15)}}
+.account{{background:#edf1e7;border-radius:18px;padding:24px;margin-top:28px}}
+.bank{{font-size:17px;font-weight:700;color:var(--green)}}
+.account-number{{font-family:Georgia,serif;font-size:22px;letter-spacing:.04em;margin:8px 0}}
+.notice{{font-size:13px;color:var(--muted);margin-top:14px}}
+.rsvp{{background:#eef2e8}}
+.form-preview{{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow);margin-top:26px}}
+.field{{margin:0 0 18px}}
+.field label{{display:block;font-size:13px;font-weight:700;margin-bottom:7px}}
+.fake-input{{border:1px solid #dfe3dc;border-radius:10px;padding:12px;color:#a0a89f;font-size:14px}}
+.options{{display:flex;gap:8px;flex-wrap:wrap}}
+.option{{border:1px solid #d8ded4;border-radius:999px;padding:9px 13px;font-size:13px;background:#fff}}
+.option.active{{border-color:var(--green);color:var(--green);background:#f0f4ed;font-weight:700}}
+.footer{{text-align:center;padding:72px 24px 80px;background:#f5f4ec}}
+.footer .thanks{{font-family:Georgia,serif;font-size:34px;color:var(--green);letter-spacing:.08em}}
+.footer .mini{{font-size:13px;color:var(--muted);margin-top:18px}}
+.small-note{{font-size:12px;color:#7b847b;margin-top:14px}}
+@media(max-width:380px){{h1{{font-size:44px}}.hero{{min-height:720px}}section{{padding-left:20px;padding-right:20px}}}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<section class="hero" id="top">
+  {"<img src='data:image/png;base64," + img_b64 + "' alt='전프로골프아카데미 개업식 골프 이미지'>" if img_b64 else ""}
+  <div class="hero-content">
+    <div class="eyebrow">INVITATION</div>
+    <h1>GRAND<br>OPENING</h1>
+    <div class="kor-title">전프로골프아카데미</div>
+    <div class="date">2026. 10. 18.</div>
+    <div class="slogan">Better Swing, Better Life</div>
+    <a class="scroll" href="#intro">아래로 스크롤하여 자세히 보기 ↓</a>
+  </div>
+</section>
+
+<section id="intro" class="center">
+  <div class="eyebrow" style="color:var(--sage);letter-spacing:.3em">GRAND OPENING</div>
+  <div class="title">개업식 안내</div>
+  <p class="lead">새로운 시작을 알리는 자리에<br>소중한 분들을 초대합니다.</p>
+  <p class="sub">골프의 즐거움과 가치를 함께 나누는 공간을<br>새롭게 시작합니다.</p>
+
+  <div class="card">
+    <div class="info-row">
+      <div class="icon">◷</div>
+      <div><div class="label">일시</div><div class="value">2026년 10월 18일</div></div>
+    </div>
+    <div class="info-row">
+      <div class="icon">⌖</div>
+      <div><div class="label">장소</div><div class="value">전프로골프아카데미</div></div>
+    </div>
+  </div>
+  <a class="btn primary" href="#map">오시는 길 보기 →</a>
+</section>
+
+<section id="map">
+  <div class="center">
+    <div class="eyebrow" style="color:var(--sage);letter-spacing:.3em">LOCATION</div>
+    <div class="title">오시는 길</div>
+  </div>
+  <div class="mapbox">
+    <div class="fake-map"><span class="pin">● 전프로골프아카데미</span></div>
+  </div>
+  <div class="card">
+    <div class="info-row">
+      <div class="icon">⌖</div>
+      <div>
+        <div class="label">NAVER MAP</div>
+        <div class="value">아래 버튼에서 실제 위치를 확인해 주세요.</div>
+      </div>
+    </div>
+  </div>
+  <a class="btn primary" href="{naver_url}" target="_blank" rel="noopener">네이버 지도에서 보기 ↗</a>
+</section>
+
+<section id="account">
+  <div class="center">
+    <div class="eyebrow" style="color:var(--sage);letter-spacing:.3em">CONGRATULATIONS</div>
+    <div class="title">계좌 안내</div>
+    <p class="sub">축하의 마음을 전하고 싶으신 분께서는<br>아래 계좌를 이용해 주세요.</p>
+  </div>
+  <div class="account">
+    <div class="bank">축하금 계좌</div>
+    <div class="account-number">계좌번호를 입력해 주세요</div>
+    <div class="notice">예금주 정보도 함께 입력하면 됩니다.</div>
+  </div>
+  <p class="small-note">※ 실제 계좌번호를 보내주시면 이 부분에 넣어 완성할 수 있습니다.</p>
+</section>
+
+<section id="rsvp" class="rsvp">
+  <div class="center">
+    <div class="eyebrow" style="color:var(--sage);letter-spacing:.3em">RSVP</div>
+    <div class="title">참석 여부를 알려주세요</div>
+    <p class="sub">소중한 분들의 참석 여부를 미리 확인하고자 합니다.</p>
+  </div>
+
+  <div class="form-preview">
+    <div class="field"><label>이름 *</label><div class="fake-input">성함을 입력해 주세요</div></div>
+    <div class="field"><label>참석 여부 *</label><div class="options"><span class="option active">참석합니다</span><span class="option">참석이 어렵습니다</span></div></div>
+    <div class="field"><label>동반 참석 인원</label><div class="options"><span class="option active">본인만 참석</span><span class="option">1명 동반</span><span class="option">2명 동반</span></div></div>
+    <div class="field"><label>연락처 *</label><div class="fake-input">010-0000-0000</div></div>
+    <a class="btn primary" href="#rsvp-link" onclick="alert('Fillout 링크를 연결하면 이 버튼에서 참석 여부를 바로 제출할 수 있습니다.');return false;">참석 여부 제출하기 →</a>
+  </div>
+  <p class="small-note center">현재는 Fillout 링크를 넣기 전의 완성형 미리보기입니다.</p>
+</section>
+
+<section class="footer">
+  <div class="thanks">감사합니다</div>
+  <p class="mini">소중한 시간 내어 초대에 응해주셔서 감사합니다.<br>전프로골프아카데미에서 좋은 인연으로 다시 뵙겠습니다.</p>
+  <div style="margin-top:28px;color:var(--sage);letter-spacing:.2em">전프로골프아카데미</div>
+</section>
+
+</main>
+</body>
+</html>
+"""
+
+out = Path("/mnt/data/전프로골프아카데미_모바일초대장.html")
+out.write_text(html_doc, encoding="utf-8")
+print(f"완성했습니다: {out}")
